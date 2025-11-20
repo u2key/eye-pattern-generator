@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from copy import deepcopy
 from load_data import *
 from generate_simple_eye_pattern import *
+from generate_all_channels_overlapped_eye_pattern import *
 
 def main(alpha=1.0):
   if len(sys.argv) < 3:
