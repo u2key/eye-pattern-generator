@@ -27,7 +27,7 @@ def generate_all_channels_overlapped_eye_pattern(csv_name, bit_rate_mbps, sample
       if samples_end_index >= len(data):
         break
       samples = data[samples_start_index:samples_end_index, channel].flatten()
-      plt.plot(time_ns, samples, color=colors[chennel], alpha=alpha)
+      plt.plot(time_ns, samples, color=colors[channel], alpha=alpha)
       window_number = window_number + 1
   plt.plot([bit_middle_ns, bit_middle_ns], [-1.0, 4.0], color="red")
   plt.gca().yaxis.set_major_formatter(plt.FormatStrFormatter('%.1f'))
