@@ -7,8 +7,8 @@ import matplotlib
 matplotlib.interactive(False)
 import matplotlib.pyplot as plt
 from copy import deepcopy
-from load-data import *
-from generate-simple-eye-pattern import *
+from load_data import *
+from generate_simple_eye_pattern import *
 
 def main(alpha=1.0):
   if len(sys.argv) < 3:
