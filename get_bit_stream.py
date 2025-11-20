@@ -23,10 +23,6 @@ def get_bit_stream(step=0):
   for a in range(bit_index+bit_stream_size, bit_index+step+bit_stream_size):
     bit_stream.append(get_bit_value(a))
   bit_index = bit_index+step
-  print(f"############################################")
-  print(f"  Bit Index : {bit_index}")
-  print(f"  Bit Stream: {bit_stream}")
-  print(f"############################################")
   return bit_stream
 
 def init_bit_stream(specified_bit_stream_size=15):
