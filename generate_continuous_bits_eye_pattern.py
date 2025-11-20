@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def generate_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, continuous_bits_data, alpha):
   maximum_number_of_continuous_bits = len(continuous_bits_data)
-  samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(max_continuous_bits_length)]
+  samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(maximum_number_of_continuous_bits)]
   for a in range(maximum_number_of_continuous_bits):
     number_of_continuous_bits = np.float(a + 1)
     time_ns = np.arange(samples_per_windows[a]) * sample_interval_ns
