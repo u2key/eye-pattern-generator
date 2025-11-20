@@ -28,6 +28,7 @@ def main(alpha=1.0):
   print(f"Samples/Window = {samples_per_window} [samples]")
   
   generate_simple_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, data, alpha)
-
+  generate_all_channels_overlapped_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, data, alpha)
+  
 if __name__ == "__main__": 
   main()
