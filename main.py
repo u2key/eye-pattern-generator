@@ -18,7 +18,7 @@ def main(alpha=1.0):
   csv_name = csv_path.replace(".csv", "")
   print(f"CSV Name: {csv_name}")
   bit_rate_mbps = np.float64(sys.argv[2])
-  bit_rate_bps = bit_rate_nbps * 1.0e+6
+  bit_rate_bps = bit_rate_mbps * 1.0e+6
   print(f"Bit Rate: {bit_rate_mbps} Mbps")
   window_interval_ns = 1.0 / bit_rate_bps * 1.0e+9
   print(f"Window Interval: {window_interval_ns} ns")
