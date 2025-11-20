@@ -44,23 +44,27 @@ def collect_continuous_bits_data(max_continuous_bits_length, samples_per_window,
     samples_index_start_last = deepcopy(samples_index_start)
     for channel in range(number_of_channels):
       samples_index_start[channel] = samples_index_start[channel] + int(samples_per_window / 10)
+      end_of_samples_flag = False
       while True:
         samples_index_start[channel] = samples_index_start[channel] + 1
         if samples_index_start[channel] >= len(data):
+          end_of_samples_flag = True
           break
         elif data[samples_index_start[channel]-1][channel] < 1.65 and data[samples_index_start[channel]][channel] >= 1.65:
           break
         elif data[samples_index_start[channel]-1][channel] >= 1.65 and data[samples_index_start[channel]][channel] < 1.65:
           break
+      if end_of_samples_flag:
+        continue
       number_of_same_samples_actual = samples_index_start[channel] - samples_index_start_last[channel]
       number_of_same_bits_actual = number_of_same_samples_actual / samples_per_window
-      number_of_same_bits_differential = abs(number_of_same_bits_actual - number_of_same_bits)
-      if number_of_same_bits_differential > 0.7:
+      number_of_same_bits_difference = abs(number_of_same_bits_actual - number_of_same_bits)
+      if number_of_same_bits_difference > 0.7:
         print(f"##########################################")
         print(f"  Channel: {channel}")
-        print(f"  Number of Same Bits             : {number_of_same_bits}")
-        print(f"  Number of Same Bits Actual      : {number_of_same_bits_actual}")
-        print(f"  Number of Same Bits Differential: {number_of_same_bits_differential}")  
+        print(f"  Number of Same Bits           : {number_of_same_bits}")
+        print(f"  Number of Same Bits Actual    : {number_of_same_bits_actual}")
+        print(f"  Number of Same Bits Difference: {number_of_same_bits_difference}")  
         print(f"##########################################")
       bit_stream = get_bit_stream(step=number_of_same_bits)
   return continuous_bits_data
