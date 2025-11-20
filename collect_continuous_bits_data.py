@@ -32,7 +32,7 @@ def collect_continuous_bits_data(max_continuous_bits_length, samples_per_window,
       if samples_index_end > len(data):
         complete_flag[channel] = True;
         continue
-      continuous_bits_data[number_of_same_bits-1][channel].append(data[samples_index_start[channel]:samples_index_end].flatten())
+      continuous_bits_data[number_of_same_bits-1][channel].append(data[samples_index_start[channel]:samples_index_end, channel].flatten())
     
     number_of_complete_flag = 0
     for channel in range(number_of_channels):
