@@ -29,7 +29,7 @@ def collect_continuous_bits_data(max_continuous_bits_length, samples_per_window,
       print(f"Number of Same bits > Max Continuous Bits Length ({number_of_same_bits} > {max_continuous_bits_length})")
       continue
     for channel in range(number_of_channels):
-      if not complete_flag[channel]:
+      if complete_flag[channel]:
         continue
       samples_index_end = samples_index_start[channel] + int(samples_per_windows[number_of_same_bits-1])
       if samples_index_end > len(data):
