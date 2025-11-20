@@ -17,7 +17,7 @@ def generate_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_wi
     else:
       gauge_time_ns = np.array([samples_per_window * (number_of_continuous_bits - 0.5), samples_per_window * number_of_continuous_bits, samples_per_window * (number_of_continuous_bits + 0.5)])
       gauge_colors  = ["orange", "red", "orange"]
-    number_of_chennels = len(continuous_bits_data[a])
+    number_of_channels = len(continuous_bits_data[a])
     for channel in range(number_of_channels):
       plt.figure()
       axes = plt.axes()
