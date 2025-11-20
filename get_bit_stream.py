@@ -13,7 +13,7 @@ def get_bit_value(bit_index, bits_per_data=12):
     for b in range(8):
       parity += int(data[7-b])
     bit_value = parity % 2
-  else
+  else:
     bit_value = 1
   return bit_value
 
