@@ -4,7 +4,7 @@ import numpy as np
 from copy import deepcopy
 from get_bit_stream import *
 
-def collect_continuous_bits_data(max_continuous_bits_length=9, samples_per_window, data):
+def collect_continuous_bits_data(max_continuous_bits_length, samples_per_window, data):
   number_of_channels = len(data[0])
   continuous_bits_data = [[[] for _ in range(number_of_channels)] for _ in range(max_continuous_bits_length)]
   samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(max_continuous_bits_length)]
