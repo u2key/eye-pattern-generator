@@ -11,5 +11,6 @@ def load_data(csv_path):
     print(f"Sample Interval Not Found")
     exit(1)
   sample_interval = np.float64(data[4][1])
-  data = np.array(data[11:, 1:], dtype=np.float64)
+  data = np.array(data[11:], dtype=np.float64)
+  data = data[:, 1:]
   return (sample_interval, data)
