@@ -6,10 +6,12 @@ import numpy as np
 import matplotlib
 matplotlib.interactive(False)
 import matplotlib.pyplot as plt
-from copy import deepcopy
 from load_data import *
 from generate_simple_eye_pattern import *
 from generate_all_channels_overlapped_eye_pattern import *
+from collect_continuous_bits_data import *
+from generate_continuous_bits_eye_pattern import *
+from generate_all_channels_overlapped_continuous_bits_eye_pattern import *
 
 def main(alpha=1.0):
   if len(sys.argv) < 3:
@@ -30,6 +32,11 @@ def main(alpha=1.0):
   
   generate_simple_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, data, alpha)
   generate_all_channels_overlapped_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, data, alpha)
+
+  max_continuous_bits_length = 9
+  continuous_bits_data = collect_continuous_bits_data(max_continuous_bits_length, samples_per_window=samples_per_window, data=data)
+  generate_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, continuous_bits_data, alpha)
+  generate_all_channels_overlapped_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, continuous_bits_data, alpha)
   
 if __name__ == "__main__": 
   main()
