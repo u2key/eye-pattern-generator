@@ -24,6 +24,7 @@ def generate_simple_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sam
         break
       samples = data[samples_start_index:samples_end_index, channel].flatten()
       plt.plot(x, samples, color="green", alpha=alpha)
+      window_number = window_number + 1
     plt.plot([bit_middle, bit_middle], [-1.0, 4.0], color="red")
     plt.gca().yaxis.set_major_formatter(plt.FormatStrFormatter('%.1f'))
     plt.ylim(-1.0, 4.0)
