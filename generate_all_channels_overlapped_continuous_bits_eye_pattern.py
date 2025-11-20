@@ -6,10 +6,13 @@ matplotlib.interactive(False)
 import matplotlib.pyplot as plt
 
 def generate_all_channels_overlapped_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, continuous_bits_data, alpha):
+  print(f"###############################################################")
+  print(f" Generate All Channels Overlapped Continuous Bits Eye-Pattern")
+  print(f"###############################################################")
   maximum_number_of_continuous_bits = len(continuous_bits_data)
-  samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(max_continuous_bits_length)]
+  samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(maximum_number_of_continuous_bits)]
   for a in range(maximum_number_of_continuous_bits):
-    number_of_continuous_bits = np.float(a + 1)
+    number_of_continuous_bits = np.float64(a + 1)
     time_ns = np.arange(samples_per_windows[a]) * sample_interval_ns
     if number_of_continuous_bits == 1:
       gauge_time_ns = np.array([samples_per_window * number_of_continuous_bits, samples_per_window * (number_of_continuous_bits + 0.5)])
@@ -21,10 +24,10 @@ def generate_all_channels_overlapped_continuous_bits_eye_pattern(csv_name, bit_r
     axes = plt.axes()
     axes.set_facecolor('black')
     colors = ['orange', 'blue', 'green', 'white']
-    number_of_chennels = len(continuous_bits_data[a])
+    number_of_channels = len(continuous_bits_data[a])
     for channel in range(number_of_channels):
-      for b in range(len(continuous[a][channel])):
-        plt.plot(time_ns, continuous[a][channel][b], color=colors[channel], alpha=alpha)
+      for b in range(len(continuous_bits_data[a][channel])):
+        plt.plot(time_ns, continuous_bits_data[a][channel][b], color=colors[channel], alpha=alpha)
     for b in range(len(gauge_colors)):
       plt.plot([gauge_time_ns[b], gauge_time_ns[b]], [-1.0, 4.0], color=gauge_colors[b], alpha=1.0)
     plt.gca().yaxis.set_major_formatter(plt.FormatStrFormatter('%.1f'))
