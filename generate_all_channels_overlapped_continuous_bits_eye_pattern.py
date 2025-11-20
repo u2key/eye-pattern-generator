@@ -14,7 +14,7 @@ def generate_all_channels_overlapped_continuous_bits_eye_pattern(csv_name, bit_r
   samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(maximum_number_of_continuous_bits)]
   for a in range(maximum_number_of_continuous_bits):
     number_of_continuous_bits = np.float64(a + 1)
-    time_ns = np.arange(samples_per_windows[a]) * sample_interval_ns
+    time_ns = np.arange(int(samples_per_windows[a])) * sample_interval_ns
     if number_of_continuous_bits == 1:
       gauge_time_ns = np.array([ns_per_window * number_of_continuous_bits, ns_per_window * (number_of_continuous_bits + 0.5)])
       gauge_colors  = ["red", "orange"]
