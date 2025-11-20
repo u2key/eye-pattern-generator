@@ -15,7 +15,7 @@ def main(alpha=1.0):
     exit(1)
   
   csv_path = sys.argv[1]
-  csv_name = csv_path.replace(".csv", "")
+  csv_name = csv_path.replace("/", "").replace(".csv", "")
   print(f"CSV Name: {csv_name}")
   bit_rate_mbps = np.float64(sys.argv[2])
   bit_rate_bps = bit_rate_mbps * 1.0e+6
