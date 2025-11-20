@@ -66,5 +66,5 @@ def collect_continuous_bits_data(max_continuous_bits_length, samples_per_window,
         print(f"  Number of Same Bits Actual    : {number_of_same_bits_actual}")
         print(f"  Number of Same Bits Difference: {number_of_same_bits_difference}")  
         print(f"##########################################")
-      bit_stream = get_bit_stream(step=number_of_same_bits)
+    bit_stream = get_bit_stream(step=number_of_same_bits)
   return continuous_bits_data
