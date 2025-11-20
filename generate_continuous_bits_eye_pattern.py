@@ -22,8 +22,8 @@ def generate_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_wi
       plt.figure()
       axes = plt.axes()
       axes.set_facecolor('black')
-      for b in range(len(continuous[a][channel])):
-        plt.plot(time_ns, continuous[a][channel][b], color="green", alpha=alpha)
+      for b in range(len(continuous_bits_data[a][channel])):
+        plt.plot(time_ns, continuous_bits_data[a][channel][b], color="green", alpha=alpha)
       for b in range(len(gauge_colors)):
         plt.plot([gauge_time_ns[b], gauge_time_ns[b]], [-1.0, 4.0], color=gauge_colors[b], alpha=1.0)
       plt.gca().yaxis.set_major_formatter(plt.FormatStrFormatter('%.1f'))
