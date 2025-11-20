@@ -22,9 +22,6 @@ def collect_continuous_bits_data(max_continuous_bits_length, samples_per_window,
         number_of_same_bits = number_of_same_bits + 1
       else:
         break
-    print(f"########################")
-    print(f"Number of Same Bits: {number_of_same_bits}")
-    print(f"########################")
     if number_of_same_bits > max_continuous_bits_length:
       print(f"Number of Same bits > Max Continuous Bits Length ({number_of_same_bits} > {max_continuous_bits_length})")
       continue
