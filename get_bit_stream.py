@@ -5,10 +5,10 @@ def get_bit_value(bit_index, bits_per_data=12):
   if bit_index_in_data_structure == 0:
     bit_value = 0
   elif bit_index_in_data_structure >= 1 and bit_index_in_data_structure <= 8:
-    data = list(f"{int(bit_index_in_data_structure / bits_per_data + 1) % 256:0>8b}")
+    data = list(f"{int(bit_index / bits_per_data + 1) % 256:0>8b}")
     bit_value = int(data[8-bit_index_in_data_structure])
   elif bit_index_in_data_structure == 9:
-    data = list(f"{int(bit_index_in_data_structure / bits_per_data + 1) % 256:0>8b}")
+    data = list(f"{int(bit_index / bits_per_data + 1) % 256:0>8b}")
     parity = 0
     for b in range(8):
       parity += int(data[7-b])
