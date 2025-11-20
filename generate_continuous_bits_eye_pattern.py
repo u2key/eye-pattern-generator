@@ -10,15 +10,16 @@ def generate_continuous_bits_eye_pattern(csv_name, bit_rate_mbps, samples_per_wi
   print(f" Generate Continuous Bits Eye-Pattern")
   print(f"#######################################")
   maximum_number_of_continuous_bits = len(continuous_bits_data)
+  ns_per_window = sample_interval_ns * samples_per_window
   samples_per_windows = [(samples_per_window * (a + 2.0)) for a in range(maximum_number_of_continuous_bits)]
   for a in range(maximum_number_of_continuous_bits):
     number_of_continuous_bits = np.float64(a + 1)
     time_ns = np.arange(samples_per_windows[a]) * sample_interval_ns
     if number_of_continuous_bits == 1:
-      gauge_time_ns = np.array([samples_per_window * number_of_continuous_bits, samples_per_window * (number_of_continuous_bits + 0.5)])
+      gauge_time_ns = np.array([ns_per_window * number_of_continuous_bits, ns_per_window * (number_of_continuous_bits + 0.5)])
       gauge_colors  = ["red", "orange"]
     else:
-      gauge_time_ns = np.array([samples_per_window * (number_of_continuous_bits - 0.5), samples_per_window * number_of_continuous_bits, samples_per_window * (number_of_continuous_bits + 0.5)])
+      gauge_time_ns = np.array([ns_per_window * (number_of_continuous_bits - 0.5), ns_per_window * number_of_continuous_bits, ns_per_window * (number_of_continuous_bits + 0.5)])
       gauge_colors  = ["orange", "red", "orange"]
     number_of_channels = len(continuous_bits_data[a])
     for channel in range(number_of_channels):
