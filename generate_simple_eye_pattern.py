@@ -5,12 +5,13 @@ import matplotlib
 matplotlib.interactive(False)
 import matplotlib.pyplot as plt
 
-def generate_simple_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval, data, alpha):
+def generate_simple_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval_ns, data, alpha):
   print(f"###############################")
   print(f"  Generate Simple Eye-Pattern")
   print(f"###############################")
-  bit_middle_ns = samples_per_window / 2 * sample_interval * 1000000000
+  bit_middle_ns = samples_per_window / 2 * sample_interval_ns
   print(f"Bit Middle: {bit_middle_ns} ns")
+  x = np.arange(int(samples_per_window)) * sample_interval_ns
   for channel in range(len(data[0])):
     plt.figure()
     axes = plt.axes()
