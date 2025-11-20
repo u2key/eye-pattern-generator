@@ -23,8 +23,8 @@ def main(alpha=1.0):
   window_interval_ns = 1.0 / bit_rate_bps * 1.0e+9
   print(f"Window Interval: {window_interval_ns} ns")
   
-  (sample_interval, data) = load_data(csv_path)
-  samples_per_window = window_interval / sample_interval
+  (sample_interval_ns, data) = load_data(csv_path)
+  samples_per_window = window_interval_ns / sample_interval_ns
   print(f"Samples/Window = {samples_per_window} [samples]")
   
   generate_simple_eye_pattern(csv_name, bit_rate_mbps, samples_per_window, sample_interval, data, alpha)
