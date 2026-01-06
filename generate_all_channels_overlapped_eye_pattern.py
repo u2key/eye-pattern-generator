@@ -33,7 +33,7 @@ def generate_all_channels_overlapped_eye_pattern(csv_name, bit_rate_mbps, sample
   plt.gca().yaxis.set_major_formatter(plt.FormatStrFormatter('%.1f'))
   plt.ylim(-1.0, 4.0)
   plt.yticks([0.0, 3.3])
-  plt.title(f"Plot of {bit_rate_mbps} Mbps")
+  plt.title(f"Plot of {bit_rate_mbps} [Mbits / second]")
   plt.xlabel("Time [ns]")
   plt.ylabel("Voltage [V]")
   plt.savefig(f"alpha{alpha}_{csv_name}.jpg")
